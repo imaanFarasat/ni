@@ -1,29 +1,28 @@
-const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 
-const app = express();
+// MongoDB URI from environment variable (use your MongoDB connection string here)
+const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://username:password@cluster0.oy88e.mongodb.net/martial?retryWrites=true&w=majority';
 
-// Middleware to parse JSON data
-app.use(bodyParser.json());
-app.use(cors());
+// Function to handle MongoDB connection
+let cachedDb = null;
 
-// Connect to MongoDB
-mongoose
-    .connect(
-        'mongodb+srv://instagram:instagram@cluster0.oy88e.mongodb.net/martial?retryWrites=true&w=majority',
-        {
+const connectToDatabase = async () => {
+    if (cachedDb) {
+        return cachedDb;
+    }
+    try {
+        const db = await mongoose.connect(mongoUri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-        }
-    )
-    .then(() => {
+        });
+        cachedDb = db;
         console.log('MongoDB Connected');
-    })
-    .catch((err) => {
-        console.error('MongoDB connection error:', err);
-    });
+        return db;
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+        throw error;
+    }
+};
 
 // Define the schema for storing form data
 const businessSchema = new mongoose.Schema({
@@ -37,30 +36,52 @@ const businessSchema = new mongoose.Schema({
 // Create the model based on the schema
 const Business = mongoose.model('Business', businessSchema);
 
-// Handle form submission
-app.post('/api/submit-form', (req, res) => {
-    console.log('Form Data Received:', req.body);
+// Export Vercel serverless function handler
+module.exports = async (req, res) => {
+    if (req.method === 'POST') {
+        try {
+            // Connect to the database
+            await connectToDatabase();
 
-    const { businessName, studioLocation, operationDuration, ownership, squareFootage } = req.body;
+            // Handle form submission
+            const { businessName, studioLocation, operationDuration, ownership, squareFootage } = req.body;
 
-    const newBusiness = new Business({
-        businessName,
-        studioLocation,
-        operationDuration,
-        ownership,
-        squareFootage,
-    });
+            // Validate the data
+            if (!businessName || !studioLocation || !operationDuration || !ownership || !squareFootage) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'All fields are required',
+                });
+            }
 
-    newBusiness
-        .save()
-        .then(() => {
-            res.json({ success: true, message: 'Data saved successfully' });
-        })
-        .catch((error) => {
+            const newBusiness = new Business({
+                businessName,
+                studioLocation,
+                operationDuration,
+                ownership,
+                squareFootage,
+            });
+
+            // Save the data to MongoDB
+            await newBusiness.save();
+
+            // Send success response
+            return res.status(200).json({
+                success: true,
+                message: 'Data saved successfully',
+            });
+        } catch (error) {
             console.error('Error saving form data:', error);
-            res.json({ success: false, message: 'Error saving data, please try again' });
+            return res.status(500).json({
+                success: false,
+                message: 'Error saving data, please try again',
+            });
+        }
+    } else {
+        // Handle non-POST requests
+        return res.status(405).json({
+            success: false,
+            message: 'Method Not Allowed',
         });
-});
-
-// Export as Vercel serverless function
-module.exports = app;
+    }
+};
