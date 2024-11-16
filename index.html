@@ -1,13 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Martial Arts Business Expansion Form</title>
-    <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        /* General Body and Container Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Title */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Section Headings (h2) - Bright and Happy Colors */
+        h2 {
+            font-size: 1.8em;
+            color: #ff6347; /* Vibrant Tomato Red */
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        h2:hover {
+            color: #ff4500; /* Bright Orange */
+        }
+
+        /* General Text Styling (p) */
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #555;
+        }
+
+        .sign-off {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #ff6347; /* Vibrant Tomato Red */
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #ff4500; /* Bright Orange */
+            transform: translateY(-5px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        /* Animations for page elements */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fun button emoji */
+        button::before {
+            content: "🚀";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            p {
+                font-size: 1.1em;
+            }
+
+            button {
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-   
-        <h1>hi<h1>
+    <div class="container">
+        <h1>Welcome to Our Page! 😊</h1>
+        <p>Hello! We're so happy to have you here! 🎉</p>
+        <p>You will be answering a few questions that will take around 15 minutes of your time. Don't worry—if you don't know an answer, simply write "I don't know". We don't expect you to answer everything!</p>
+        <p>Take your time and feel free to skip any questions. We appreciate your time and can't wait to see you soon! 🌟</p>
+        <p class="sign-off">Warm regards,</p>
+        <p class="sign-off">Hossein & Mitra 👋</p>
+        <button class="start-btn" onclick="window.location.href='/public/page1.html'">Let's Start! 🚀</button>
+    </div>
 </body>
 </html>
