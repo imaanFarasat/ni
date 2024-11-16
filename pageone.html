@@ -97,28 +97,30 @@
         </form>
     </div>
     <script>
-        document.getElementById('expansionForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from refreshing the page
-
-            const formData = new FormData(this);
-
-            fetch('/api/submit-form', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Form submitted successfully!');
-                } else {
-                    alert('Error submitting the form.');
-                }
-            })
-            .catch(error => {
-                console.error('Submission error:', error);
-                alert('Network error.');
-            });
-        });
+        function goToNextPage() {
+            const form = document.getElementById('expansionForm');
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                
+                // Send data to the server using fetch
+                fetch('/api/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the next page (Page 3 in this case)
+                        window.location.href = 'page2.html';
+                    } else {
+                        alert('Error saving data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please complete all required fields before continuing.');
+            }
+        }
     </script>
 </body>
 </html>
