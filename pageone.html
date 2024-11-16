@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Martial Arts Business Expansion Form</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Martial Arts Business Expansion Form</h1>
+        <form id="expansionForm">
+            <!-- Section 1 -->
+            <h2>Section 1: Business Information</h2>
+            <div class="question">
+                <label>What is the name of your martial arts business?</label><br />
+                <input name="businessName" required type="text" />
+            </div>
+            <div class="question">
+                <label>Where is your martial arts studio located?</label><br />
+                <input name="studioLocation" required type="text" />
+            </div>
+            <div class="question">
+                <label>How long have you been operating your martial arts business?</label><br />
+                <label><input name="operationDuration" required type="radio" value="Less than 1 year" /> Less than 1 year</label><br />
+                <label><input name="operationDuration" type="radio" value="1-3 years" /> 1-3 years</label><br />
+                <label><input name="operationDuration" type="radio" value="3-5 years" /> 3-5 years</label><br />
+                <label><input name="operationDuration" type="radio" value="5+ years" /> 5+ years</label>
+            </div>
+            <div class="question">
+                <label>Do you currently own or lease your facility?</label><br />
+                <label><input name="ownership" required type="radio" value="Own" /> Own</label><br />
+                <label><input name="ownership" type="radio" value="Lease" /> Lease</label>
+            </div>
+            <div class="question">
+                <label>What is the square footage of your current location?</label><br />
+                <label><input name="squareFootage" required type="radio" value="Less than 1,000 sq. ft." /> Less than 1,000 sq. ft.</label><br />
+                <label><input name="squareFootage" type="radio" value="1,000 - 2,000 sq. ft." /> 1,000 - 2,000 sq. ft.</label><br />
+                <label><input name="squareFootage" type="radio" value="2,000 - 3,000 sq. ft." /> 2,000 - 3,000 sq. ft.</label><br />
+                <label><input name="squareFootage" type="radio" value="More than 3,000 sq. ft." /> More than 3,000 sq. ft.</label>
+            </div>
+
+            <!-- Section 2 -->
+            <h2>Section 2: Martial Arts Programs</h2>
+            <div class="question">
+                <label>What martial arts styles do you currently teach? (Select all that apply)</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Karate" /> Karate</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Taekwondo" /> Taekwondo</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Judo" /> Judo</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Brazilian Jiu-Jitsu" /> Brazilian Jiu-Jitsu (BJJ)</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Muay Thai" /> Muay Thai</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Boxing" /> Boxing</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Kickboxing" /> Kickboxing</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Kung Fu" /> Kung Fu</label><br />
+                <label><input name="martialArtsStyles" type="checkbox" value="Other" /> Other: <input name="otherMartialArts" type="text" /></label>
+            </div>
+            <div class="question">
+                <label>What age groups do you currently serve?</label><br />
+                <label><input name="ageGroups" required type="radio" value="Children (Under 12)" /> Children (Under 12)</label><br />
+                <label><input name="ageGroups" type="radio" value="Teenagers (12-18)" /> Teenagers (12-18)</label><br />
+                <label><input name="ageGroups" type="radio" value="Adults (18-45)" /> Adults (18-45)</label><br />
+                <label><input name="ageGroups" type="radio" value="Seniors (45+)" /> Seniors (45+)</label>
+            </div>
+            <div class="question">
+                <label>What types of classes do you offer?</label><br />
+                <label><input name="classTypes" type="checkbox" value="Group Classes" /> Group Classes</label><br />
+                <label><input name="classTypes" type="checkbox" value="Private Lessons" /> Private Lessons</label><br />
+                <label><input name="classTypes" type="checkbox" value="Online Training" /> Online Training</label><br />
+                <label><input name="classTypes" type="checkbox" value="Family Classes" /> Family Classes</label><br />
+                <label><input name="classTypes" type="checkbox" value="Self-defense Classes" /> Self-defense Classes</label><br />
+                <label><input name="classTypes" type="checkbox" value="Other" /> Other: <input name="otherClasses" type="text" /></label>
+            </div>
+
+            <!-- Section 3 -->
+            <h2>Section 3: Business Goals</h2>
+            <div class="question">
+                <label>What is your primary goal for expanding your martial arts business?</label><br />
+                <label><input name="primaryGoal" required type="radio" value="Increase the number of students" /> Increase the number of students</label><br />
+                <label><input name="primaryGoal" type="radio" value="Open additional locations" /> Open additional locations</label><br />
+                <label><input name="primaryGoal" type="radio" value="Offer new services or martial arts styles" /> Offer new services or martial arts styles</label><br />
+                <label><input name="primaryGoal" type="radio" value="Build a brand presence" /> Build a brand presence (e.g., local or national recognition)</label><br />
+                <label><input name="primaryGoal" type="radio" value="Expand online classes or programs" /> Expand online classes or programs</label><br />
+                <label><input name="primaryGoal" type="radio" value="Other" /> Other: <input name="otherGoal" type="text" /></label>
+            </div>
+            <div class="question">
+                <label>What are the key milestones you want to achieve in the next 1-3 years?</label><br />
+                <label><input name="milestones" type="checkbox" value="Opening a new branch" /> Opening a new branch</label><br />
+                <label><input name="milestones" type="checkbox" value="Increasing membership by X%" /> Increasing membership by X%</label><br />
+                <label><input name="milestones" type="checkbox" value="Hosting events or tournaments" /> Hosting events or tournaments</label><br />
+                <label><input name="milestones" type="checkbox" value="Launching a website or mobile app" /> Launching a website or mobile app</label><br />
+                <label><input name="milestones" type="checkbox" value="Developing merchandise or training materials" /> Developing merchandise or training materials</label><br />
+                <label><input name="milestones" type="checkbox" value="Other" /> Other: <input name="otherMilestones" type="text" /></label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('expansionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            const formData = new FormData(this);
+
+            fetch('/api/submit-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Form submitted successfully!');
+                } else {
+                    alert('Error submitting the form.');
+                }
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                alert('Network error.');
+            });
+        });
+    </script>
+</body>
+</html>
