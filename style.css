@@ -1,0 +1,187 @@
+/* General Body and Container Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Section Headings (h2) - Bright and Happy Colors */
+h2 {
+    font-size: 1.8em;
+    color: #ff6347; /* Vibrant Tomato Red */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+h2:hover {
+    color: #ff4500; /* Bright Orange */
+}
+
+/* General Text Styling (label) */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #333;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Question Styling (with Fun Background Colors) */
+.question {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideIn 0.6s forwards;
+    background-color: #f0f8ff; /* Light Alice Blue */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.question:hover {
+    background-color: #ffebcd; /* Light Blanched Almond on Hover */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Input and Select Styling */
+input[type="text"],
+select {
+    font-size: 1em;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #ff6347; /* Vibrant Tomato Red */
+    box-shadow: 0 0 4px rgba(255, 99, 71, 0.5);
+}
+
+/* Button Styling */
+button {
+    background-color: #ff6347; /* Vibrant Tomato Red */
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+button:hover {
+    background-color: #ff4500; /* Bright Orange */
+    transform: translateY(-5px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input[type="text"],
+    select {
+        font-size: 1em;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 10px 15px;
+    }
+}
+
+/* Hover effects for options */
+select option {
+    padding: 8px;
+}
+
+select:hover {
+    background-color: #e0f7fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Add some emojis to the buttons and form for a fun effect */
+button::before {
+    content: "💡";
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+/* Animations for focus and hover */
+input[type="text"]:focus {
+    border-color: #ff6347;
+    box-shadow: 0 0 6px rgba(255, 99, 71, 0.6);
+}
+
+/* Fun animation for form input and button when hovered */
+form:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
